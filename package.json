@@ -1,43 +1,28 @@
 {
-  "name": "internal-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
+  "name": "softdev-app",
+  "version": "0.0.1",
+  "description": "SoftDev App",
+  "main": "index.js",
   "dependencies": {
-    "vue": "^2.5.16"
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "jsonschema": "^1.2.4",
+    "md5": "^2.2.1",
+    "moment": "^2.22.1",
+    "mongodb": "^3.1.1"
   },
+  "scripts": {
+    "start": "node index.js",
+    "server": "node_modules/.bin/nodemon index.js",
+    "client": "cd client && yarn serve",
+		"dev": "concurrently --kill-others \"yarn server\" \"yarn client\"",
+		"feed": "node app/feed.js"
+  },
+  "license": "MIT",
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
-    "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
-    "@vue/cli-service": "^3.0.0-beta.15",
-    "vue-template-compiler": "^2.5.16"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "nodemon": "^1.18.1"
+  }
 }
